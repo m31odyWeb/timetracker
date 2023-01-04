@@ -1,0 +1,78 @@
+{
+	"name": "Timetracker.",
+	"version": "0.0.1",
+	"private": false,
+	"author": "m31ody<my.web.acc.dn@gmail.com>",
+	"keywords": [
+		"svelte",
+		"svelte-kit",
+		"sveltekit",
+		"template"
+	],
+	"homepage": "https://github.com/m31odyWeb/timetracker",
+	"description": "Application for timetracking with Google Sheets API integration",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/m31odyWeb/timetracker.git"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint:code": "prettier --plugin-search-dir=src --check src && npx eslint src",
+		"lint:code:stage": "prettier --plugin-search-dir=src --check src && npx eslint --config ./.eslintrc.stage.cjs src",
+		"lint:styles": "prettier --plugin-search-dir=src --check src && npx stylelint src",
+		"fix:code": "npx stylelint --fix ./src/",
+		"fix:styles": "npx stylelint --fix ./src/",
+		"format": "npx prettier --plugin-search-dir=. --write ./src/",
+		"fix:and:format": "npx stylelint --fix ./src/ && npx eslint --fix ./src/ & npx prettier --plugin-search-dir=. --write ./src/",
+		"prepare": "husky install"
+	},
+	"lint-staged": {
+		"src/**/*.{js,ts,svelte}": "npm run lint:code:stage",
+		"src/**/*.{svelte,css,scss}": "npm run lint:styles"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "npm run lint-staged"
+		}
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^1.0.0",
+		"@sveltejs/kit": "^1.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.45.0",
+		"@typescript-eslint/parser": "^5.45.0",
+		"autoprefixer": "^10.4.13",
+		"eslint": "^8.28.0",
+		"eslint-config-prettier": "^8.5.0",
+		"eslint-plugin-svelte3": "^4.0.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.1.0",
+		"postcss": "^8.4.20",
+		"postcss-html": "^1.5.0",
+		"postcss-scss": "^4.0.6",
+		"postcss-syntax": "^0.36.2",
+		"prettier": "^2.8.0",
+		"prettier-plugin-svelte": "^2.8.1",
+		"stylelint": "^14.16.0",
+		"stylelint-config-html": "^1.1.0",
+		"stylelint-config-idiomatic-order": "^9.0.0",
+		"stylelint-config-prettier": "^9.0.4",
+		"stylelint-config-recommended-scss": "^8.0.0",
+		"stylelint-config-tailwindcss": "^0.0.7",
+		"stylelint-scss": "^4.3.0",
+		"svelte": "^3.54.0",
+		"svelte-check": "^2.9.2",
+		"tailwindcss": "^3.2.4",
+		"tslib": "^2.4.1",
+		"typescript": "^4.9.3",
+		"vite": "^4.0.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"axios": "^1.2.2",
+		"sass": "^1.57.1"
+	}
+}

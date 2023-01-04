@@ -1,0 +1,12 @@
+*.tsx
+*.jsx
+*.ts
+*.js
+*.md
+*.svg
+*.cjs
+*.mjs
+/.eslintrc.cjs
+/.svelte.config.js
+/.vite.config.js
+/node_modules

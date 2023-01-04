@@ -1,0 +1,38 @@
+module.exports = {
+	root: true,
+	parser: '@typescript-eslint/parser',
+	extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	plugins: ['svelte3', '@typescript-eslint'],
+	ignorePatterns: ['*.cjs'],
+	overrides: [{ files: ['*.svelte'], processor: 'svelte3/svelte3' }],
+	settings: {
+		'svelte3/typescript': () => require('typescript'),
+	},
+	parserOptions: {
+		sourceType: 'module',
+		ecmaVersion: 2020,
+	},
+	env: {
+		browser: true,
+		es2017: true,
+		node: true,
+	},
+	rules: {
+		semi: 2,
+		quotes: ['error', 'single', { avoidEscape: true }],
+		'keyword-spacing': ['error', { before: true, after: true }],
+		'block-spacing': 'error',
+		'computed-property-spacing': ['error', 'never'],
+		'key-spacing': 'error',
+		'arrow-spacing': 'error',
+		'arrow-parens': ['error', 'always'],
+		'no-unused-vars': 'off',
+		'no-duplicate-imports': 'off',
+		'@typescript-eslint/no-unused-vars': 'error',
+		'@typescript-eslint/no-duplicate-imports': 'error',
+		'no-console': 'error',
+		'no-debugger': 'error',
+		'linebreak-style': ['warn', 'unix'],
+		'no-var': 'error',
+	},
+};
